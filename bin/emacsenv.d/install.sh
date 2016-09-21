@@ -42,8 +42,13 @@ action "git reset --hard"
 check_error
 
 # gen configure
-action 'sh autogen.sh'
-check_error
+if [ -e 'autogen.sh' ]; then
+    action 'sh autogen.sh'
+    check_error
+else
+    action 'autoconf'
+    check_error
+fi
 
 action "./configure $CONFIGURE_OPT"
 check_error
