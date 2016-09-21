@@ -55,7 +55,6 @@ action "make $MAKE_OPT install"
 check_error
 
 # set profiles
-mkdir $EMACS_HOME
-cp $SAMPLE_CODE_DIR/* $EMACS_HOME/
+cp -rf $SAMPLE_CODE_DIR/ $EMACS_HOME/
 
 finalize
