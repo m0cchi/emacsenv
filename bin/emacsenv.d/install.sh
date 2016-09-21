@@ -35,6 +35,12 @@ cd $LOCAL_REPOSITORY
 action "git checkout refs/tags/$version"
 check_error
 
+action "rm -rf [a-zA-Z]*"
+check_error
+
+action "git reset --hard"
+check_error
+
 # gen configure
 action 'sh autogen.sh'
 check_error
