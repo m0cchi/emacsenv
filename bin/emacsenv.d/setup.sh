@@ -13,5 +13,6 @@ cp -rf $LOCAL_EMACSENV_REPOSITORY/../sample $EMACSENV_HOME
 mkdir $ENV_DIR
 
 cat <<EOF
-hey $SAMPLE_CODE_DIR
+
+export PATH=$EMACSENV_HOME/bin:$PATH
 EOF
