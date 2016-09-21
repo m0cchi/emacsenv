@@ -1,0 +1,40 @@
+#!/usr/bin/env bash
+
+LOCAL_EMACSENV_REPOSITORY=$(cd $(dirname $0); pwd)
+COMMAND_DIR=$LOCAL_EMACSENV_REPOSITORY/emacsenv.d
+
+. $COMMAND_DIR/_functions.sh
+
+PWD=$(pwd)
+DEFAULT_EMACS_REPOSITORY='git://git.savannah.gnu.org/emacs.git'
+DEFAULT_EMACSENV_HOME=$HOME/.emacsenv
+
+EMACS_REPOSITORY=$(or "$EMACS_REPOSITORY" "$DEFAULT_EMACS_REPOSITORY")
+EMACSENV_HOME=$(or "$EMACSENV_HOME" "$DEFAULT_EMACSENV_HOME")
+LOCAL_REPOSITORY=$EMACSENV_HOME/repository
+LOCAL_VERSIONS_DIR=$EMACSENV_HOME/versions
+SAMPLE_CODE_DIR=$EMACSENV_HOME/sample
+LOG_DIR=$EMACSENV_HOME/log
+ENV_DIR=$EMACSENV_HOME/env
+GLOBAL_FILE=$ENV_DIR/global
+EMACSENV_FILE=.emacsenvfile
+
+COMMAND="$1"
+shift 1
+
+case $COMMAND in
+    install) . $COMMAND_DIR/install.sh
+             ;;
+    setup) . $COMMAND_DIR/setup.sh
+           ;;
+    exec) . $COMMAND_DIR/exec.sh
+          ;;
+    global) . $COMMAND_DIR/global.sh
+          ;;
+    local) . $COMMAND_DIR/local.sh
+           ;;
+    env) . $COMMAND_DIR/env.sh
+         ;;
+    help) . $COMMAND_DIR/help.sh
+          ;;
+esac
