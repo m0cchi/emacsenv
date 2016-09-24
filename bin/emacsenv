@@ -35,6 +35,8 @@ case $COMMAND in
            ;;
     env) . $COMMAND_DIR/env.sh
          ;;
+    update) . $COMMAND_DIR/update.sh
+            ;;
     help) . $COMMAND_DIR/help.sh
           ;;
 esac
