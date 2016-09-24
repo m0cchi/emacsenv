@@ -20,4 +20,6 @@ if [ ! -e "$BIN_FILE" ]; then
     exit 1
 fi
 
-HOME=$EMACS_HOME/profiles $BIN_FILE $*
+PROFILE_DIR=$(or "$PROFILE_DIR" "$EMACS_HOME/profiles")
+
+HOME=$PROFILE_DIR $BIN_FILE $*

@@ -7,4 +7,4 @@ if [ ! -e "$TARGET_PATH" ]; then
     exit 0
 fi
 
-echo "EMACS_HOME=$TARGET_PATH" > $GLOBAL_FILE
+echo "PROFILE_DIR=$TARGET_PATH/profiles EMACS_HOME=$TARGET_PATH" > $GLOBAL_FILE
