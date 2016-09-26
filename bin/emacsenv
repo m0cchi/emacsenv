@@ -18,7 +18,7 @@ LOG_DIR=$EMACSENV_HOME/log
 ENV_DIR=$EMACSENV_HOME/env
 GLOBAL_FILE=$ENV_DIR/global
 EMACSENV_FILE=.emacsenvfile
-
+PLUGINS_DIR=$EMACSENV_HOME/plugins
 COMMAND="$1"
 shift 1
 
@@ -39,4 +39,6 @@ case $COMMAND in
             ;;
     help) . $COMMAND_DIR/help.sh
           ;;
+    *) . $COMMAND_DIR/plugin.sh
+       ;;
 esac
