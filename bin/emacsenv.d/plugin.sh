@@ -2,8 +2,8 @@ if [ "$COMMAND" = "" ]; then
     exit 1
 fi
 
-if [ -e "$PLUGINS_DIR/$COMMAND.sh" ]; then
-    . $PLUGINS_DIR/$COMMAND.sh
+if [ -e "$EMACSENV_PLUGINS_DIR/$COMMAND.sh" ]; then
+    . "$EMACSENV_PLUGINS_DIR/$COMMAND.sh"
 else
     exit 1
 fi
