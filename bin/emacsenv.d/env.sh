@@ -17,4 +17,5 @@ HOME=$EMACS_HOME/profiles
 show_env "$prefix" 'EMACSENV_HOME'
 show_env "$prefix" 'EMACS_VERSION'
 show_env "$prefix" 'EMACS_HOME'
+show_env "$prefix" 'EMACSENV_PLUGINS_DIR'
 show_env "$prefix" 'HOME'
