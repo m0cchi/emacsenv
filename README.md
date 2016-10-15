@@ -17,7 +17,7 @@ $ emacs
 
 ## emacsclient
 ```bash
-$ emacs --daemon
-$ emacsenv exec emacsclient /path/to/file
-$ emacsenv exec emacsclient -e '(kill-emacs)'
+$ emacsclient /path/to/file
+# startup emacs-daemon
+$ emacsclient -e '(kill-emacs)'
 ```
