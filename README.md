@@ -14,3 +14,10 @@ $ emacs global emacs-25.1
 $ emacs
 #=> running webapp(localhost:5678).
 ```
+
+## emacsclient
+```bash
+$ emacs --daemon
+$ emacsenv exec emacsclient /path/to/file
+$ emacsenv exec emacsclient -e '(kill-emacs)'
+```
