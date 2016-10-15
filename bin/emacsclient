@@ -1,7 +1,15 @@
 #!/usr/bin/env bash
 emacsenv=$(cd $(dirname $0); pwd)/emacsenv
-$emacsenv exec emacsclient $*
+opt=
+
+if [ $# -eq 0 ]; then
+    opt='-t'
+else
+    opt="$@"
+fi
+
+$emacsenv exec emacsclient $opt
 if [ ! $? -eq 0 ]; then
     $emacsenv exec emacs --daemon
-    $emacsenv exec emacsclient $*
+    $emacsenv exec emacsclient $opt
 fi
