@@ -1,11 +1,17 @@
 #!/usr/bin/env bash
 emacsenv=$(cd $(dirname $0); pwd)/emacsenv
-opt=
+opt="$@"
+has_option=false
 
-if [ $# -eq 0 ]; then
-    opt='-t'
-else
-    opt="$@"
+for o in $*; do
+    if [ $o = '-t' ]; then
+        has_option=true
+        break
+    fi
+done
+
+if ! $has_option ; then
+    opt=$(echo "-t $opt")
 fi
 
 $emacsenv exec emacsclient $opt
