@@ -23,3 +23,8 @@ $ emacsclient /path/to/file
 # startup emacs-daemon
 $ emacsclient -e '(kill-emacs)'
 ```
+
+## sudo
+```bash
+$ sudo EMACSENV_HOME=$HOME/.emacsenv emacs /root
+```
