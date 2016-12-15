@@ -9,6 +9,13 @@ PWD=$(pwd)
 DEFAULT_EMACS_REPOSITORY='git://git.savannah.gnu.org/emacs.git'
 DEFAULT_EMACSENV_HOME=$HOME/.emacsenv
 
+# missing default emacsenv home                                                                                                                         
+which logname &> /dev/null
+if [ $? -eq 0 -a ! -e "$DEFAULT_EMACSENV_HOME" -a -e /etc/passwd ]; then
+    LOGINUSER="$(logname)"
+    DEFAULT_EMACSENV_HOME=$(cat /etc/passwd | awk -F ':' '"'$LOGINUSER'"==$1{print $6}')'/.emacsenv'
+fi
+
 EMACS_REPOSITORY=$(or "$EMACS_REPOSITORY" "$DEFAULT_EMACS_REPOSITORY")
 EMACSENV_HOME=$(or "$EMACSENV_HOME" "$DEFAULT_EMACSENV_HOME")
 LOCAL_REPOSITORY=$EMACSENV_HOME/repository
