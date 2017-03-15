@@ -14,6 +14,8 @@ if [ ! -e "$LOCAL_REPOSITORY/.git" ]; then
     exit
 fi
 
+raw_option="$COMMAND $* $CONFIGURE_OPT"
+
 version=$1
 shift 1
 
@@ -21,6 +23,7 @@ DEFAULT_CONFIGURE_OPT="--without-x --without-ns"
 VERSION_NAME=$(or "$VERSION_NAME" "$version")
 INSTALL_DIR="$LOCAL_VERSIONS_DIR/$VERSION_NAME"
 EMACS_HOME="$INSTALL_DIR/profiles"
+CONFIGURE_OPT=$(or "$*" "$CONFIGURE_OPT")
 CONFIGURE_OPT="--prefix=$INSTALL_DIR "$(or "$CONFIGURE_OPT" "$DEFAULT_CONFIGURE_OPT")
 DEFAULT_MAKE_OPT="-j4"
 MAKE_OPT=$(or "$MAKE_OPT" "$DEFAULT_MAKE_OPT")
@@ -30,7 +33,7 @@ if [ -z "$version" ]; then
     exit
 fi
 
-cd $LOCAL_REPOSITORY
+cd "$LOCAL_REPOSITORY"
 
 # checkout version
 action "git checkout refs/tags/$version"
@@ -61,6 +64,7 @@ action "make $MAKE_OPT install"
 check_error
 
 # set profiles
-cp -rf $SAMPLE_CODE_DIR/ $EMACS_HOME/
+cp -rf "$SAMPLE_CODE_DIR/" "$EMACS_HOME/"
+echo "$raw_option" > "$INSTALL_DIR/build-option.emacsenv"
 
 finalize
