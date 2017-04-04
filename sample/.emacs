@@ -5,7 +5,7 @@
 
 ;; env
 (defconst +PORT+ 5678)
-(defconst +HOST+ "0.0.0.0"))
+(defconst +HOST+ "0.0.0.0")
 
 (defvar *dependencies* '(
                          elnode
