@@ -17,6 +17,12 @@ $ emacs
 #=> running webapp(localhost:5678).
 ```
 
+# Edit Profiles
+```bash
+$ eval $(emacsenv env 'export ')
+$ emacs -Q $EMACS_HOME/profiles/.emacs
+```
+# Run
 ## emacsclient
 ```bash
 $ emacsclient /path/to/file
