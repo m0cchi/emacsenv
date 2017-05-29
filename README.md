@@ -34,3 +34,6 @@ $ emacsclient -e '(kill-emacs)'
 ```bash
 $ sudo EMACSENV_HOME=$HOME/.emacsenv emacs /root
 ```
+
+# plugins
+* [emacsenv-sudo](https://github.com/m0cchi/emacsenv-sudo)
