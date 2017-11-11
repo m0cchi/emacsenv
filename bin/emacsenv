@@ -37,6 +37,8 @@ case $COMMAND in
          ;;
     update) . $COMMAND_DIR/update.sh
             ;;
+    versions) . $COMMAND_DIR/versions.sh
+              ;;
     help) . $COMMAND_DIR/help.sh
           ;;
     *) . $COMMAND_DIR/plugin.sh
