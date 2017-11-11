@@ -30,5 +30,12 @@ $ emacsclient /path/to/file
 $ emacsclient -e '(kill-emacs)'
 ```
 
+# Shebang
+`elexec` is the same as `emacs env exec emacs --script`
+```elisp
+#!/usr/bin/env elexec
+(princ emacs-version)
+```
+
 # plugins
 * [emacsenv-sudo](https://github.com/m0cchi/emacsenv-sudo)
