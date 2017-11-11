@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+emacsenv exec emacs --script $*
