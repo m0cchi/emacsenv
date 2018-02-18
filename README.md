@@ -4,7 +4,7 @@
 ```bash
 $ ./install.sh
 #=> $HOME/.emacsenv
-$ echo 'export PATH='$HOME/.emacsenv/bin:$PATH >> .bashrc
+$ echo 'export PATH=$HOME/.emacsenv/bin:$PATH' >> .bashrc
 ```
 
 # Initial Emacs
