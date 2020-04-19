@@ -37,5 +37,19 @@ $ emacsclient -e '(kill-emacs)'
 (princ emacs-version)
 ```
 
+# Fix $HOME
+```el
+(getenv "HOME")
+; "/home/m0cchi/.emacsenv/versions/emacs-27.0.90/profiles"
+(getenv "USER_HOME")
+; "/home/m0cchi"
+```
+
+add the following to `/home/m0cchi/.emacsenv/versions/emacs-27.0.90/profiles/.emacs`
+```el
+(if (getenv "USER_HOME")
+    (setenv "HOME" (getenv "USER_HOME")))
+```
+
 # plugins
 * [emacsenv-sudo](https://github.com/m0cchi/emacsenv-sudo)
