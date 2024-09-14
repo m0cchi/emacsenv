@@ -19,7 +19,7 @@ raw_option="$COMMAND $* $CONFIGURE_OPT"
 version=$1
 shift 1
 
-DEFAULT_CONFIGURE_OPT="--without-x --without-ns"
+DEFAULT_CONFIGURE_OPT="--without-x --without-ns --with-native-compilation=aot"
 VERSION_NAME=$(or "$VERSION_NAME" "$version")
 INSTALL_DIR="$LOCAL_VERSIONS_DIR/$VERSION_NAME"
 EMACS_HOME="$INSTALL_DIR/profiles"
