@@ -1,0 +1,14 @@
+# bash completion for emacsenv
+
+_emacsenv() {
+    local cur prev subcommands
+    cur="${COMP_WORDS[COMP_CWORD]}"
+    prev="${COMP_WORDS[COMP_CWORD-1]}"
+    subcommands="install setup exec global local env update versions help"
+
+    if [ "$COMP_CWORD" -eq 1 ]; then
+        COMPREPLY=($(compgen -W "${subcommands}" -- "${cur}"))
+    fi
+}
+
+complete -F _emacsenv emacsenv
