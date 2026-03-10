@@ -51,5 +51,24 @@ add the following to `/home/m0cchi/.emacsenv/versions/emacs-27.0.90/profiles/.em
     (setenv "HOME" (getenv "USER_HOME")))
 ```
 
+# Shell Completion
+
+## bash
+
+```bash
+$ source /path/to/emacsenv/completions/bash/emacsenv
+# or add to .bashrc:
+$ echo 'source /path/to/emacsenv/completions/bash/emacsenv' >> ~/.bashrc
+```
+
+## zsh
+
+```zsh
+$ fpath=(/path/to/emacsenv/completions/zsh $fpath)
+$ autoload -Uz compinit && compinit
+# or add to .zshrc:
+$ echo 'fpath=(/path/to/emacsenv/completions/zsh $fpath)' >> ~/.zshrc
+```
+
 # plugins
 * [emacsenv-sudo](https://github.com/m0cchi/emacsenv-sudo)

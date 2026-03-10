@@ -1,0 +1,24 @@
+#compdef emacsenv
+
+# zsh completion for emacsenv
+
+_emacsenv() {
+    local subcommands
+    subcommands=(
+        'install:install emacs'
+        'setup:setup emacsenv'
+        'exec:exec command with emacs environment'
+        'global:set global emacs version'
+        'local:set local emacs version'
+        'env:print emacs environment variables'
+        'update:update emacsenv'
+        'versions:list installed emacs versions'
+        'help:show help'
+    )
+
+    if (( CURRENT == 2 )); then
+        _describe 'subcommand' subcommands
+    fi
+}
+
+_emacsenv
