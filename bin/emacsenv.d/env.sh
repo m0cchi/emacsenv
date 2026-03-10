@@ -1,6 +1,7 @@
 ENV_FILE=$(search_envfile)
 
 if [ "$ENV_FILE" = "" ]; then
+    echo "emacsenv: no environment file found. Run 'emacsenv global <version>' or create a .emacsenvfile" >&2
     exit 1
 fi
 

@@ -1,4 +1,5 @@
 if [ "$LOCAL_REPOSITORY" = "" ]; then
+    echo "emacsenv: LOCAL_REPOSITORY is not set. Run 'emacsenv setup' first" >&2
     exit 1
 fi
 

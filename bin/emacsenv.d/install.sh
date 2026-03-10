@@ -10,8 +10,8 @@ function finalize() {
 }
 
 if [ ! -e "$LOCAL_REPOSITORY/.git" ]; then
-    echo "install"
-    exit
+    echo "emacsenv: repository not found. Run 'emacsenv setup' first" >&2
+    exit 1
 fi
 
 raw_option="$COMMAND $* $CONFIGURE_OPT"
@@ -29,8 +29,8 @@ DEFAULT_MAKE_OPT="-j4"
 MAKE_OPT=$(or "$MAKE_OPT" "$DEFAULT_MAKE_OPT")
 
 if [ -z "$version" ]; then
-    echo "specify"
-    exit
+    echo "emacsenv: version not specified. Usage: emacsenv install <version>" >&2
+    exit 1
 fi
 
 cd "$LOCAL_REPOSITORY"
