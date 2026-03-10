@@ -23,7 +23,7 @@ function check_error() {
 function action() {
     echo "$(date '+%H:%M:%S'): $1" >> $LOG_DIR/$COMMAND`date '+%Y%m%d'`.log
     if [ "$1" = "" ]; then
-        echo "none action"
+        echo "emacsenv: no action specified" >&2
         if type finalize 1>/dev/null 2>/dev/null; then
             finalize $*
         fi
