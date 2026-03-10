@@ -18,6 +18,18 @@ _emacsenv() {
 
     if (( CURRENT == 2 )); then
         _describe 'subcommand' subcommands
+    elif (( CURRENT == 3 )); then
+        case "${words[2]}" in
+            install)
+                local emacsenv_home="${EMACSENV_HOME:-$HOME/.emacsenv}"
+                local repo_dir="$emacsenv_home/repository"
+                if [[ -d "$repo_dir/.git" ]]; then
+                    local -a tags
+                    tags=(${(f)"$(git -C "$repo_dir" tag -l 'emacs-*' --sort=-version:refname)"})
+                    _describe 'version' tags
+                fi
+                ;;
+        esac
     fi
 }
 
