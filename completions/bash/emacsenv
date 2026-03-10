@@ -8,6 +8,18 @@ _emacsenv() {
 
     if [ "$COMP_CWORD" -eq 1 ]; then
         COMPREPLY=($(compgen -W "${subcommands}" -- "${cur}"))
+    elif [ "$COMP_CWORD" -eq 2 ]; then
+        case "$prev" in
+            install)
+                local emacsenv_home="${EMACSENV_HOME:-$HOME/.emacsenv}"
+                local repo_dir="$emacsenv_home/repository"
+                if [ -d "$repo_dir/.git" ]; then
+                    local tags
+                    tags=$(git -C "$repo_dir" tag -l 'emacs-*' --sort=-version:refname)
+                    COMPREPLY=($(compgen -W "${tags}" -- "${cur}"))
+                fi
+                ;;
+        esac
     fi
 }
 
