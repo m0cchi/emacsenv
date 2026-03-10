@@ -1,6 +1,6 @@
 (prefer-coding-system 'utf-8)
 (require 'package)
-(require 'cl)
+(require 'cl-lib)
 (require 'server)
 
 ;; env
@@ -12,8 +12,6 @@
                          ))
 
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
-(add-to-list 'package-archives '("marmalade" . "https://marmalade-repo.org/packages/"))
-(add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t)
 
 (package-initialize)
 (package-refresh-contents)
